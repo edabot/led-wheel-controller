@@ -155,7 +155,7 @@ class BLEManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriph
 
         characteristicASCIIValue = ASCIIstring
 
-      print("Value Recieved: \((characteristicASCIIValue as String))")
+      print("Value Received: \((characteristicASCIIValue as String))")
 
       NotificationCenter.default.post(name:NSNotification.Name(rawValue: "Notify"), object: "\((characteristicASCIIValue as String))")
     }

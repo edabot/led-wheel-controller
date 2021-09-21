@@ -44,8 +44,19 @@ class WheelData : ObservableObject {
         hitDummy()
     }
     
+//    func prepWheelForSend(_ wheel: Wheel) -> String {
+//        "M\(wheel.mode)\(wheel.subMode[wheel.mode])"
+//    }
+    
+    func secondChar(_ wheel: Wheel) -> Character {
+        let value = wheel.subMode[wheel.mode] + (wheel.reversed ? 30 : 0 ) + 48
+        let u = UnicodeScalar(value)
+        let char = Character(u!)
+        return char
+    }
+    
     func prepWheelForSend(_ wheel: Wheel) -> String {
-        "M\(wheel.mode)S\(wheel.subMode[wheel.mode])"
+        "M\(wheel.mode)\(secondChar(wheel))"
     }
     
     func makeSendString() -> String {
